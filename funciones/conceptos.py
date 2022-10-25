@@ -1,5 +1,5 @@
 
-
+'''
 #INTERNAMENTE a = x, b = y
 def suma(a,b):
 
@@ -22,3 +22,13 @@ y = int(input("valor 2: "))
 
 
 print(suma(x,y))
+'''
+
+
+#PARAMETROS POR DEFECTO
+
+def suma(a=10,b=10):
+
+	print(a+b)
+
+suma()

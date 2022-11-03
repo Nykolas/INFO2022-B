@@ -12,7 +12,7 @@ Debe tener un menú interactivo que permita:
 
 ALUMNOS ={
 
-209998882:{'nombre':'nicolas','localidad':'Resistencia','notasPW':[7,6,3], 'notasBD':[6,8,2]},
+209998882:{'nombre':'nicolas','localidad':'Resistencia','notasPW':[], 'notasBD':[]},
 801223132:{'nombre':'Maria','localidad':'Barranqueras','notasPW':[2,10,2], 'notasBD':[5,9,1]}
 
 }
@@ -49,17 +49,16 @@ def CargarAlumno(alumnos):
 def CargarNota(alumnos):
 	dni = input("Ingrese el dni\t")
 	if dni in alumnos.keys():
-		alu = alumnos[dni]
 		print("VAMOS A CARGAR LAS NOTAS DE PW")
 		n1 = int(input("Ingrese la nota 1\t"))
 		n2 = int(input("Ingrese la nota 2\t"))
 		n3 = int(input("Ingrese la nota 3\t"))
-		alu['notasPW'] = [n1,n2,n3]
+		alumnos[dni]['notasPW'] = [n1,n2,n3]
 		print("VAMOS A CARGAR LAS NOTAS DE BD")
 		n1 = int(input("Ingrese la nota 1\t"))
 		n2 = int(input("Ingrese la nota 2\t"))
 		n3 = int(input("Ingrese la nota 3\t"))
-		alu['notasBD'] = [n1,n2,n3]
+		alumnos[dni]['notasBD'] = [n1,n2,n3]
 	else:
 		print("EL DNI INGRESADO NO ES VALIDO")
 
@@ -86,6 +85,7 @@ def MostrarNotasAlumno(alumnos):
 		print()
 	else:
 		print("EL DNI INGRESADO NO ES VALIDO")
+		
 def MayorPromedio(alumnos):
 	mayor = 0
 	for dni,datos in alumnos.items():
@@ -97,7 +97,7 @@ def MayorPromedio(alumnos):
 			alumnoMayor = datos
 	print(f"EL ALUMNO CON MAYOR PROMEDIO ES: {alumnoMayor['nombre']}, y su promedio fue de : {mayor}")
 
-def MostrarAprobados():
+def MostrarAprobados(alumnos):
 	pass
 
 def Main():
@@ -121,4 +121,5 @@ def Main():
 		input('----CONTINUAR----')
 
 		os.system('cls') #LIMPIA LA PANTALLA
+
 Main()

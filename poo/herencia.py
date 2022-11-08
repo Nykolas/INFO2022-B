@@ -18,6 +18,8 @@ class Vehiculo:
 	def set_ruedas(self, nuevo_ruedas):
 		self.ruedas = nuevo_ruedas
 
+	def __str__(self):
+		return f"Vehiculo\n color {self.color}\n ruedas {self.ruedas}"
 
 class Coche(Vehiculo):
 
@@ -39,10 +41,18 @@ class Coche(Vehiculo):
 	def set_cilindrada(self, nuevo_cilindrada):
 		self.cilindrada = nuevo_cilindrada
 
-	def __str__(self):
-		return f"COCHE: con cilindrada = {self.cilindrada}"
+	def calcular_potencia(self):
+		r = self.velocidad / self.cilindrada
+		print(f"Mi potencia {r}")
 
+	def __str__(self):
+		return f"COCHE\n velocidad {self.velocidad}\n cilindrada {self.cilindrada}\n" + super().__str__()
+
+	
 c1 = Coche('rojo',4,200,180)
+v1 = Vehiculo('azul',2)
 
 print(c1)
+print("----------------------------")
+print(v1)
 
